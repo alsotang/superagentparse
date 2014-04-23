@@ -1,12 +1,18 @@
 {
   "name": "superagentparse",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "provide encoding support for superagent",
   "main": "index.js",
   "scripts": {
     "test": "make test"
   },
-  "author": "alsotang",
+  "author": "alsotang <alsotang@gmail.com>",
+  "keywords": [
+    "superagent",
+    "encoding",
+    "gbk",
+    "gb2321"
+  ],
   "license": "MIT",
   "devDependencies": {
     "express": "^4.0.0",
@@ -17,5 +23,9 @@
   "dependencies": {
     "iconv-lite": "^0.2.11",
     "bufferhelper": "^0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:alsotang/superagentparse.git"
   }
 }
