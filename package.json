@@ -9,8 +9,13 @@
   "author": "alsotang",
   "license": "MIT",
   "devDependencies": {
+    "express": "^4.0.0",
     "mocha": "^1.18.2",
     "should": "^3.3.1",
     "superagent": "^0.17.0"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.2.11",
+    "bufferhelper": "^0.2.0"
   }
 }

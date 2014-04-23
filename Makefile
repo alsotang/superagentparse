@@ -1,3 +1,4 @@
 test:
+	mocha
 
 .PHONY: test
