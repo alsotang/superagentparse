@@ -24,8 +24,12 @@ app.get('/big5', function (req, res) {
 });
 
 describe('test/encoding.js', function () {
+  var server;
   before(function () {
-    app.listen(3000);
+    server = app.listen(3000);
+  });
+  after(function () {
+    server.close();
   });
 
   it('should parse utf-8', function (done) {
@@ -54,6 +58,27 @@ describe('test/encoding.js', function () {
       .parse(parse('big5'))
       .end(function (err, res) {
         res.text.should.equal('你好');
+        done(err);
+      });
+  });
+
+  it('should parse buffer', function (done) {
+    superagent
+      .get('https://www.google.com/images/srpr/logo11w.png')
+      .parse(parse('buffer'))
+      .buffer(true)
+      .end(function (err, res) {
+        Buffer.isBuffer(res.text).should.be.true;
+        done(err);
+      });
+  });
+
+  it('should not parse buffer when not `buffer(true)`', function (done) {
+    superagent
+      .get('https://www.google.com/images/srpr/logo11w.png')
+      .parse(parse('buffer'))
+      .end(function (err, res) {
+        res.text.should.eql({ buffers: [] });
         done(err);
       });
   });
