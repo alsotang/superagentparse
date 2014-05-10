@@ -9,9 +9,7 @@ module.exports = function (encoding) {
     });
     res.on('end', function() {
       res.text = res.text.toBuffer();
-      if (encoding !== 'buffer') {
-        res.text = iconv.decode(res.text, encoding);
-      }
+      res.text = iconv.decode(res.text, encoding);
       done();
     });
   };
