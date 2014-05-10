@@ -8,8 +8,9 @@ module.exports = function (encoding) {
       res.text.concat(chunk);
     });
     res.on('end', function() {
+      res.text = res.text.toBuffer();
       if (encoding !== 'buffer') {
-        res.text = iconv.decode(res.text.toBuffer(), encoding);
+        res.text = iconv.decode(res.text, encoding);
       }
       done();
     });
