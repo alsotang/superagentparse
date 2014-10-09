@@ -1,6 +1,6 @@
 {
   "name": "superagentparse",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "provide encoding support for superagent",
   "main": "index.js",
   "scripts": {
