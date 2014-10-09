@@ -9,7 +9,9 @@ var parse = require('superagentparse');
 
 superagent
   .get('http://gbk_page_url/')
-  .parse(parse('gbk')) // here is the key
+  // here is the key, can be also: 
+  // CP932, CP936, CP949, CP950, GB2313, GBK, GB18030, Big5, Shift_JIS, EUC-JP
+  .parse(parse('gbk')) 
   .end(function (err, res) {
     res.text.should.equal('你好');
     done(err);
